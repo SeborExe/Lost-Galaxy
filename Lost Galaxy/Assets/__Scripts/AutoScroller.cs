@@ -1,0 +1,16 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class AutoScroller : MonoBehaviour
+{
+    public float scrollSpeed = 0.05f;
+
+    [SerializeField]
+    private MeshRenderer mesh;
+    private void Update()
+    {
+        Vector2 offset = new Vector2(0, Time.time * scrollSpeed);
+        mesh.material.mainTextureOffset = offset;
+    }
+}
