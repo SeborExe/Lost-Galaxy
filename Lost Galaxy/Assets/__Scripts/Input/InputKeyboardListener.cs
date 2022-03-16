@@ -4,19 +4,14 @@ using UnityEngine;
 
 public class InputKeyboardListener : MonoBehaviour, IInputable
 {
-    public static InputKeyboardListener Instance;
-
-    public delegate void HasShoot();
-    public event HasShoot OnHasShoot;
-
-    private void Awake()
+    public void GetDirection(Vector3 direction)
     {
-        Instance = this;
+        InputProvider.TriggerDirection(direction);
     }
 
     public void ShootPressed()
     {
-        OnHasShoot?.Invoke();
+        InputProvider.TriggerOnHasShoot();
     }
 
     private void Update()
@@ -25,5 +20,7 @@ public class InputKeyboardListener : MonoBehaviour, IInputable
         {
             ShootPressed();
         }
+
+        GetDirection(new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")));
     }
 }

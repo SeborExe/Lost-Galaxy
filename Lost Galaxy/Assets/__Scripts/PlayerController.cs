@@ -20,7 +20,13 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         moveComponent.speed = speed;
-        InputKeyboardListener.Instance.OnHasShoot += OnHasShoot;
+        InputProvider.OnHasShoot += OnHasShoot;
+        InputProvider.OnDirection += OnDirection;
+    }
+
+    private void OnDirection(Vector3 direction)
+    {
+        moveComponent.direction = direction;
     }
 
     private void OnHasShoot()
@@ -30,8 +36,6 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        moveComponent.direction = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), transform.position.z);
-
         float x = Mathf.Clamp(transform.position.x, boundary.xMin, boundary.xMax);
         float y = Mathf.Clamp(transform.position.y, boundary.yMin, boundary.yMax);
         transform.position = new Vector3(x, y);
