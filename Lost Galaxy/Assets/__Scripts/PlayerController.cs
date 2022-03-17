@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,12 +11,31 @@ public class Boundary
 public class PlayerController : MonoBehaviour
 {
     public Move moveComponent;
-    public float speed = 7f;
+    public float speed;
     public Boundary boundary;
+
+    public Transform shootOrigin;
+    public GameObject bullet;
+
+    private void Start()
+    {
+        moveComponent.speed = speed;
+        InputProvider.OnHasShoot += OnHasShoot;
+        InputProvider.OnDirection += OnDirection;
+    }
+
+    private void OnDirection(Vector3 direction)
+    {
+        moveComponent.direction = direction;
+    }
+
+    private void OnHasShoot()
+    {
+        Instantiate(bullet, shootOrigin, false);
+    }
+
     private void Update()
     {
-        moveComponent.DoMove(new Vector3(Input.GetAxis("Horizontal") * speed * Time.deltaTime, Input.GetAxis("Vertical") * speed * Time.deltaTime, transform.position.z));
-
         float x = Mathf.Clamp(transform.position.x, boundary.xMin, boundary.xMax);
         float y = Mathf.Clamp(transform.position.y, boundary.yMin, boundary.yMax);
         transform.position = new Vector3(x, y);
