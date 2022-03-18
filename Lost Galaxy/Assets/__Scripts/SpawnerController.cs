@@ -10,6 +10,7 @@ public class SpawnerController : MonoBehaviour
     public int amountEnemyToSpawn;
     public float spawnCadence;
     public float initialStartTime;
+    public List<EnemyConfig> enemyConfigs;
 
     private void Start()
     {
@@ -29,6 +30,13 @@ public class SpawnerController : MonoBehaviour
 
     public void SpawnEnemy(Vector3 enemyPosition, Quaternion rotation)
     {
-        Instantiate(enemyPrefab, enemyPosition, rotation);
+        var enemy = Instantiate(enemyPrefab, enemyPosition, rotation);
+        var enemyController = enemy.GetComponent<EnemyController>();
+
+        if (enemyController != null)
+        {
+            int randomConfigIndex = Random.Range(0, enemyConfigs.Count);
+            enemyController.config = enemyConfigs[randomConfigIndex];
+        }
     }
 }

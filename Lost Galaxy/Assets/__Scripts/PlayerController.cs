@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnHasShoot()
     {
-        Instantiate(bullet, shootOrigin, false);
+        Instantiate(bullet, shootOrigin.position, shootOrigin.rotation);
     }
 
     private void Update()

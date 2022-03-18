@@ -94,12 +94,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4843317765407356966}
   - component: {fileID: 5679025465503795117}
-  - component: {fileID: 3887614805582848774}
   - component: {fileID: 514424987798617354}
   - component: {fileID: 5097454720953988743}
   - component: {fileID: 5485158803118262762}
   - component: {fileID: 7859353695594993405}
   - component: {fileID: -8311685036120526038}
+  - component: {fileID: 7068616049399107297}
   m_Layer: 8
   m_Name: EnemyDronePurple
   m_TagString: Untagged
@@ -144,45 +144,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &3887614805582848774
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4843317765407356961}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4805f371561c3c245b49e89c7cd64af8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  action:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5097454720953988743}
-        m_TargetAssemblyTypeName: Instantiator, Assembly-CSharp
-        m_MethodName: DoInstantiate
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 514424987798617354}
-        m_TargetAssemblyTypeName: DestroyObject, Assembly-CSharp
-        m_MethodName: DoDestroy
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &514424987798617354
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -251,7 +212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dde7fea10b4510f4d81505287c796171, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  action:
+  alwaysAction:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 514424987798617354}
@@ -266,5 +227,33 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  unIgnoredActions:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5097454720953988743}
+        m_TargetAssemblyTypeName: Instantiator, Assembly-CSharp
+        m_MethodName: DoInstantiate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   tagsToIgnore:
-  - LevelLimits
+  - LevelLimit
+--- !u!114 &7068616049399107297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4843317765407356961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3cbf8fabc4b346439151fc794d1a0cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  config: {fileID: 11400000, guid: a7974df2e31a8b34f823d563c163621a, type: 2}

@@ -5572,6 +5572,9 @@ MonoBehaviour:
   amountEnemyToSpawn: 30
   spawnCadence: 0.2
   initialStartTime: 1
+  enemyConfigs:
+  - {fileID: 11400000, guid: a7974df2e31a8b34f823d563c163621a, type: 2}
+  - {fileID: 11400000, guid: 9f5a0ae94a0a00246b97b2cc9f007d05, type: 2}
 --- !u!1 &1099080360
 GameObject:
   m_ObjectHideFlags: 0
@@ -5695,7 +5698,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1523228279}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
