@@ -8,6 +8,7 @@ public class EnemyController : MonoBehaviour
     public EnemyConfig config;
     private Move move;
     private SpriteRenderer renderer;
+    private Shooter[] shooters;
 
     private void Start()
     {
@@ -21,6 +22,27 @@ public class EnemyController : MonoBehaviour
         if (config.sprite != null)
         {
             renderer.sprite = config.sprite;
+        }
+
+        if (config.isShooter)
+
+        shooters = GetComponentsInChildren<Shooter>();
+        if (shooters != null && shooters.Length > 0)
+        {
+            StartCoroutine(ShootForever());
+        }
+    }
+
+    private IEnumerator ShootForever()
+    {
+        yield return new WaitForSeconds(config.firstShootCadence);
+        while (true)
+        {
+            foreach (var shooter in shooters)
+            {
+                shooter.DoShoot();
+            }
+            yield return new WaitForSeconds(config.shootCadence);
         }
     }
 }

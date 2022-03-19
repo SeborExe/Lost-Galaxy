@@ -12,6 +12,7 @@ public class WavesConfig : ScriptableObject
         public EnemyController enemyPrefab;
         public Vector3 spawnReferencePosition;
         public bool useSpecificXPosition;
+        public EnemyConfig config;
     }
 
     public List<EachEnemyConfig> enemies;

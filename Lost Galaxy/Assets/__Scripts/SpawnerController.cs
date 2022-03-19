@@ -32,7 +32,7 @@ public class SpawnerController : MonoBehaviour
                     enemyPosition = new Vector3(Random.Range(-enemy.spawnReferencePosition.x, enemy.spawnReferencePosition.x), enemy.spawnReferencePosition.y, 0);
                 }
 
-                SpawnEnemy(enemy.enemyPrefab.gameObject, enemyPosition, spawnRotation);
+                SpawnEnemy(enemy.enemyPrefab, enemy.config, enemyPosition, spawnRotation);
                 yield return new WaitForSeconds(wave.cadance);
             }
 
@@ -40,8 +40,10 @@ public class SpawnerController : MonoBehaviour
         }
     }
 
-    public void SpawnEnemy(GameObject enemyPrefab, Vector3 enemyPosition, Quaternion rotation)
+    public void SpawnEnemy(EnemyController enemyPrefab, EnemyConfig config, Vector3 enemyPosition, Quaternion rotation)
     {
-        Instantiate(enemyPrefab, enemyPosition, rotation);
+        var enemy = Instantiate(enemyPrefab, enemyPosition, rotation);
+        enemy.config = config;
+
     }
 }

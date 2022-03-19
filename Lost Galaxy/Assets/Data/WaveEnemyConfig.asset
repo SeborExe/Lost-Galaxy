@@ -16,7 +16,9 @@ MonoBehaviour:
   - enemyPrefab: {fileID: 7068616049399107297, guid: 316484d2b362f4047b2bb15f5d7dda2d, type: 3}
     spawnReferencePosition: {x: 0, y: 5.3, z: 0}
     useSpecificXPosition: 1
-  - enemyPrefab: {fileID: 7068616049399107297, guid: 316484d2b362f4047b2bb15f5d7dda2d, type: 3}
+    config: {fileID: 11400000, guid: a7974df2e31a8b34f823d563c163621a, type: 2}
+  - enemyPrefab: {fileID: 7068616049399107297, guid: 3d38b3db3c21e9f42846236f3844cf37, type: 3}
     spawnReferencePosition: {x: 0, y: 5.3, z: 0}
     useSpecificXPosition: 1
+    config: {fileID: 11400000, guid: 9f5a0ae94a0a00246b97b2cc9f007d05, type: 2}
   cadance: 2
