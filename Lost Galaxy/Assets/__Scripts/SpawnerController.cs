@@ -4,13 +4,10 @@ using UnityEngine;
 
 public class SpawnerController : MonoBehaviour
 {
-    public GameObject enemyPrefab;
-    public Vector3 spawnReferencePosition;
-    public Quaternion spawnRotation;
-    public int amountEnemyToSpawn;
-    public float spawnCadence;
-    public float initialStartTime;
-    public List<EnemyConfig> enemyConfigs;
+    [SerializeField] private List <WavesConfig> wavesConfigs;
+    [SerializeField] private Quaternion spawnRotation;
+    [SerializeField] private float initialStartTime;
+    [SerializeField] private float cadenceBetweenWaves;
 
     private void Start()
     {
@@ -20,23 +17,31 @@ public class SpawnerController : MonoBehaviour
     private IEnumerator EnemySpawnCoroutine()
     {
         yield return new WaitForSeconds(initialStartTime);
-        for (int i = 0; i < amountEnemyToSpawn; i++)
+
+        foreach (var wave in wavesConfigs)
         {
-            Vector3 randomPosition = new Vector3(Random.Range(-spawnReferencePosition.x, spawnReferencePosition.x), spawnReferencePosition.y, 0);
-            SpawnEnemy(randomPosition, spawnRotation);
-            yield return new WaitForSeconds(spawnCadence);
+            foreach (var enemy in wave.enemies)
+            {
+                Vector3 enemyPosition = Vector3.zero;
+                if (enemy.useSpecificXPosition)
+                {
+                    enemyPosition = enemy.spawnReferencePosition;
+                }
+                else
+                {
+                    enemyPosition = new Vector3(Random.Range(-enemy.spawnReferencePosition.x, enemy.spawnReferencePosition.x), enemy.spawnReferencePosition.y, 0);
+                }
+
+                SpawnEnemy(enemy.enemyPrefab.gameObject, enemyPosition, spawnRotation);
+                yield return new WaitForSeconds(wave.cadance);
+            }
+
+            yield return new WaitForSeconds(cadenceBetweenWaves);
         }
     }
 
-    public void SpawnEnemy(Vector3 enemyPosition, Quaternion rotation)
+    public void SpawnEnemy(GameObject enemyPrefab, Vector3 enemyPosition, Quaternion rotation)
     {
-        var enemy = Instantiate(enemyPrefab, enemyPosition, rotation);
-        var enemyController = enemy.GetComponent<EnemyController>();
-
-        if (enemyController != null)
-        {
-            int randomConfigIndex = Random.Range(0, enemyConfigs.Count);
-            enemyController.config = enemyConfigs[randomConfigIndex];
-        }
+        Instantiate(enemyPrefab, enemyPosition, rotation);
     }
 }

@@ -5091,8 +5091,8 @@ MonoBehaviour:
     xMax: 8.7
     yMin: -4.7
     yMax: 4.7
-  shootOrigin: {fileID: 889643982}
-  bullet: {fileID: 5978596695346180943, guid: b31ee935b28c2534eb7e19cbc65441d7, type: 3}
+  shooters:
+  - {fileID: 889643983}
 --- !u!4 &184691227
 Transform:
   m_ObjectHideFlags: 0
@@ -5106,7 +5106,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2003529746}
-  - {fileID: 889643982}
+  - {fileID: 2040966679}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5303,6 +5303,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 889643982}
+  - component: {fileID: 889643983}
   m_Layer: 0
   m_Name: ShootOrigin
   m_TagString: Untagged
@@ -5317,14 +5318,28 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 889643981}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.4, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.4000001, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 184691227}
-  m_RootOrder: 1
+  m_Father: {fileID: 2040966679}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &889643983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 889643981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee7a7a860f218ea47b0f959c784092ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shootOrigin: {fileID: 889643982}
+  bullet: {fileID: 5978596695346180943, guid: b31ee935b28c2534eb7e19cbc65441d7, type: 3}
 --- !u!1 &930546603
 GameObject:
   m_ObjectHideFlags: 0
@@ -5566,15 +5581,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 693da34efe18387449d6c550e76b4b08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 4843317765407356961, guid: 316484d2b362f4047b2bb15f5d7dda2d, type: 3}
-  spawnReferencePosition: {x: 8.5, y: 5.3, z: 0}
+  wavesConfigs:
+  - {fileID: 11400000, guid: 2e73cdb2474bc774c85a99bc25d9681a, type: 2}
+  - {fileID: 11400000, guid: 2e73cdb2474bc774c85a99bc25d9681a, type: 2}
+  - {fileID: 11400000, guid: 2e73cdb2474bc774c85a99bc25d9681a, type: 2}
   spawnRotation: {x: 0, y: 0, z: 180, w: 0}
-  amountEnemyToSpawn: 30
-  spawnCadence: 0.2
   initialStartTime: 1
-  enemyConfigs:
-  - {fileID: 11400000, guid: a7974df2e31a8b34f823d563c163621a, type: 2}
-  - {fileID: 11400000, guid: 9f5a0ae94a0a00246b97b2cc9f007d05, type: 2}
+  cadenceBetweenWaves: 2
 --- !u!1 &1099080360
 GameObject:
   m_ObjectHideFlags: 0
@@ -10562,3 +10575,35 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!1 &2040966678
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2040966679}
+  m_Layer: 0
+  m_Name: Cannons
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2040966679
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2040966678}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 889643982}
+  m_Father: {fileID: 184691227}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
