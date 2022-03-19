@@ -12,5 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d61d390f5de6c947896d250c3b7a3ae, type: 3}
   m_Name: HardEnemyConfig
   m_EditorClassIdentifier: 
-  movementSpeed: 3.5
+  movementSpeed: 2
   sprite: {fileID: 21300000, guid: 2891d59158f4f7e4c8d006fbc2e55cc9, type: 3}
+  isShooter: 1
+  shootCadence: 0.5
+  firstShootCadence: 0
