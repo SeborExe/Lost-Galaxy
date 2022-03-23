@@ -6,6 +6,12 @@ public class GameController : MonoBehaviour
 {
     public static GameController Instance;
 
+    public delegate void EnemyDied(GameObject corps);
+    public event EnemyDied OnEnemyDied;
+
+    [SerializeField] private PlayerController player;
+    [SerializeField] private SpawnerController spawner;
+
     private int playerScore;
 
     private void Awake()
@@ -17,5 +23,11 @@ public class GameController : MonoBehaviour
     public void OnDied(GameObject deadObject, int score = 0)
     {
         playerScore += score;
+        player.AddToPowerLevel(1);
+
+        if (OnEnemyDied != null)
+        {
+            OnEnemyDied.Invoke(gameObject);
+        }
     }
 }

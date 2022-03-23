@@ -294,9 +294,9 @@ MonoBehaviour:
   alwaysAction:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7068616049399107297}
-        m_TargetAssemblyTypeName: EnemyController, Assembly-CSharp
-        m_MethodName: OnDie
+      - m_Target: {fileID: 514424987798617354}
+        m_TargetAssemblyTypeName: DestroyObject, Assembly-CSharp
+        m_MethodName: DoDestroy
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
