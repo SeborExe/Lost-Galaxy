@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6086204398924805217}
   - component: {fileID: 2280221121269295167}
   - component: {fileID: 347779204838576706}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Shoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4805f371561c3c245b49e89c7cd64af8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  action:
+  alwaysAction:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2280221121269295167}
@@ -164,7 +164,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5978596695424018545}
   - component: {fileID: 5978596695424018544}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: BulletBombSpriteSheetGreen_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}

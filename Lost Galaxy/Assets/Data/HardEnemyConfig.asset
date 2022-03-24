@@ -17,3 +17,4 @@ MonoBehaviour:
   isShooter: 1
   shootCadence: 0.5
   firstShootCadence: 0
+  score: 40

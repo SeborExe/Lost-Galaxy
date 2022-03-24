@@ -33,6 +33,12 @@ public class EnemyController : MonoBehaviour
         }
     }
 
+    public void OnDie()
+    {
+        Debug.Log("Im dead");
+        GameController.Instance.OnDied(gameObject, config.score);
+    }
+
     private IEnumerator ShootForever()
     {
         yield return new WaitForSeconds(config.firstShootCadence);

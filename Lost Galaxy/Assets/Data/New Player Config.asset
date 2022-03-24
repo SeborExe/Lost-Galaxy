@@ -9,12 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d61d390f5de6c947896d250c3b7a3ae, type: 3}
-  m_Name: EasyEnemyConfig
+  m_Script: {fileID: 11500000, guid: 5288cac07f14c3b409a765194573037c, type: 3}
+  m_Name: New Player Config
   m_EditorClassIdentifier: 
-  movementSpeed: 1.25
-  sprite: {fileID: 21300000, guid: cab67442bb6328543af3dd33c6fa8780, type: 3}
-  isShooter: 0
-  shootCadence: 0
-  firstShootCadence: 0
-  score: 25
+  powerConfigs:
+  - powerValue: 1
+    cannonAmount: 1
+  - powerValue: 2
+    cannonAmount: 3

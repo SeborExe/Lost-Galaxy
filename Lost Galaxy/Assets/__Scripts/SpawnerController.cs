@@ -11,7 +11,22 @@ public class SpawnerController : MonoBehaviour
 
     private void Start()
     {
+        GameController.Instance.OnEnemyDied += OnEnemyDied;
+
         StartCoroutine(EnemySpawnCoroutine());
+    }
+
+    private void OnDestroy()
+    {
+        if (GameController.Instance != null)
+        {
+            GameController.Instance.OnEnemyDied -= OnEnemyDied;
+        }
+    }
+
+    private void OnEnemyDied(GameObject corps)
+    {
+        Debug.Log("Kill!");
     }
 
     private IEnumerator EnemySpawnCoroutine()

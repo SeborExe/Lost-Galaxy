@@ -14,6 +14,10 @@ public class PlayerController : MonoBehaviour
     public float speed;
     public Boundary boundary;
     [SerializeField] private List <Shooter> shooters;
+    [SerializeField] private PlayerConfig config;
+
+    private int powerLevel;
+    private int unlockedCannons = 1;
 
     private void Start()
     {
@@ -29,10 +33,23 @@ public class PlayerController : MonoBehaviour
 
     private void OnHasShoot()
     {
-        foreach (var shooter in shooters)
+        for (int i = 0; i < unlockedCannons; i++)
         {
+            var shooter = shooters[i];
             shooter.DoShoot();
         }
+    }
+
+    public void AddToPowerLevel(int powerToAdd)
+    {
+        powerLevel += powerToAdd;
+        var powerConfig = config.GetPowerConfig(powerLevel);
+        unlockedCannons = powerConfig.cannonAmount;
+    }
+
+    public void OnPlayerDie()
+    {
+        GameController.Instance.OnPlayerDie();
     }
 
     private void Update()
