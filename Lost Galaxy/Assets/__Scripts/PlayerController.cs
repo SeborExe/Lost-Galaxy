@@ -47,6 +47,11 @@ public class PlayerController : MonoBehaviour
         unlockedCannons = powerConfig.cannonAmount;
     }
 
+    public void OnPlayerDie()
+    {
+        GameController.Instance.OnPlayerDie();
+    }
+
     private void Update()
     {
         float x = Mathf.Clamp(transform.position.x, boundary.xMin, boundary.xMax);

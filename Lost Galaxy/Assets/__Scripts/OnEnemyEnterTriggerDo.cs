@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class OnEnemyEnterTriggerDo : MonoBehaviour
+public class OnEnemyEnterTriggerDo : OnCollisionDo
 {
-    [SerializeField] private UnityEvent alwaysAction;
     [SerializeField] private UnityEvent unIgnoredActions;
     [SerializeField] List<string> tagsToIgnore;
-
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected override void OnTriggerEnter2D(Collider2D collision)
     {
         alwaysAction.Invoke();
         foreach (var tags in tagsToIgnore)
@@ -20,6 +18,11 @@ public class OnEnemyEnterTriggerDo : MonoBehaviour
             }
         }
         unIgnoredActions.Invoke();
+    }
+
+    public override void DestroyCollisionObj()
+    {
+        Debug.Log("Do nothing");
     }
 
 }

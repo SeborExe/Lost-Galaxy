@@ -30,4 +30,9 @@ public class GameController : MonoBehaviour
             OnEnemyDied.Invoke(gameObject);
         }
     }
+
+    public void OnPlayerDie()
+    {
+
+    }
 }

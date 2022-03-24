@@ -5,16 +5,16 @@ using UnityEngine.Events;
 
 public class OnCollisionDo : MonoBehaviour
 {
-    [SerializeField] private UnityEvent action;
+    [SerializeField] protected UnityEvent alwaysAction;
 
-    private GameObject collisionObj;
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected GameObject collisionObj;
+    protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
         collisionObj = collision.gameObject;
-        action.Invoke();
+        alwaysAction.Invoke();
     }
 
-    public void DestroyCollisionObj()
+    public virtual void DestroyCollisionObj()
     {
         if (collisionObj != null)
         {
