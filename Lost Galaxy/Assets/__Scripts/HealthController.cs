@@ -11,11 +11,15 @@ public class HealthController : MonoBehaviour
     public void OnDamage(int damageAmout)
     {
         health -= damageAmout;
+
+        if (health <= 0)
+        {
+            OnZeroHealth();
+        }
     }
 
     public void OnZeroHealth()
     {
-        Debug.Log("Im dead!");
         if (onZeroHealthActions != null)
         {
             onZeroHealthActions.Invoke();

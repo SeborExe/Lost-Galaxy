@@ -14,4 +14,9 @@ public class Shooter : MonoBehaviour
         if (isEnebled)
             Instantiate(bullet, shootOrigin.position, shootOrigin.rotation);
     }
+
+    public void EnableShoot(bool shouldEnable)
+    {
+        isEnebled = shouldEnable;
+    }
 }
