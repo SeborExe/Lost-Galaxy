@@ -18,3 +18,4 @@ MonoBehaviour:
   shootCadence: 0
   firstShootCadence: 0
   score: 25
+  health: 2

@@ -7,8 +7,16 @@ public class Shooter : MonoBehaviour
     [SerializeField] private Transform shootOrigin;
     [SerializeField] private GameObject bullet;
 
+    public bool isEnebled = true;
+
     public void DoShoot()
     {
-        Instantiate(bullet, shootOrigin.position, shootOrigin.rotation);
+        if (isEnebled)
+            Instantiate(bullet, shootOrigin.position, shootOrigin.rotation);
+    }
+
+    public void EnableShoot(bool shouldEnable)
+    {
+        isEnebled = shouldEnable;
     }
 }

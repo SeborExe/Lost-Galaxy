@@ -19,17 +19,18 @@ public class EnemyController : MonoBehaviour
             move.speed = config.movementSpeed;
         }
 
-        if (config.sprite != null)
+        if (config.sprite != null && renderer != null)
         {
             renderer.sprite = config.sprite;
         }
 
         if (config.isShooter)
-
-        shooters = GetComponentsInChildren<Shooter>();
-        if (shooters != null && shooters.Length > 0)
         {
-            StartCoroutine(ShootForever());
+            shooters = GetComponentsInChildren<Shooter>();
+            if (shooters != null && shooters.Length > 0)
+            {
+                StartCoroutine(ShootForever());
+            }
         }
     }
 
